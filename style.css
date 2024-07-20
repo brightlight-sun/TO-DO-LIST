@@ -1,0 +1,346 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+/* root for light-mode */
+:root {
+    --primary-bg: linear-gradient(rgb(104, 191, 241), white);
+    --primary-textColor: black;
+    --shadow-color: black;
+    --scroll-color: linear-gradient(white, rgb(104, 191, 241));
+}
+
+/* end */
+/* root for dark- mode */
+:root .darkMode {
+    --primary-bg: linear-gradient(brown, black);
+    --primary-textColor: white;
+    --shadow-color: brown;
+    --scroll-color: linear-gradient(brown, black);
+
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: var(--primary-bg);
+    /* overflow: hidden; */
+    color: var(--primary-textColor);
+}
+
+
+header, .input-heading {
+    width: 100vw;
+    max-width: 600px;
+    background: var(--primary-bg);
+    margin: 50px auto 0px;
+    /* padding: 20px 20px 70px; */
+    border-radius: 40px;
+    box-shadow: 0 0 10px var(--shadow-color);
+    padding: 0;
+}
+
+h2 {
+    font-size: 20px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-top: 10px;
+
+}
+
+.todo-image {
+    position: absolute;
+    width: 60px;
+    right: 30%;
+    height: auto;
+}
+
+.input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline-offset: 4px;
+    border-radius: 30px;
+    border: none;
+    margin-bottom: 10px;
+
+}
+
+#input-bar {
+    height: 0px 10px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    flex: 1;
+    background: transparent;
+    font-weight: 300;
+    letter-spacing: 1.5px;
+    padding: 10px 10px;
+    color: var(--primary-textColor);
+
+
+}
+
+.input-btn {
+    border: none;
+    background: transparent;
+    border-radius: 20px;
+    width: 80px;
+    height: 30px;
+    letter-spacing: 1px;
+    padding: 1px;
+    box-shadow: 0 0 10px var(--shadow-color);
+    cursor: pointer;
+    transition: 0.1s ease-in-out;
+    font-size: auto;
+    margin-right: 8px;
+    color: var(--primary-textColor);
+
+}
+
+.input-btn:hover {
+    transform: scale(110%);
+}
+
+.todo {
+    width: 100vw;
+    max-width: 600px;
+    height: 300px;
+    background: var(--primary-bg);
+    margin: 30px auto 10px;
+    padding: 0px 0px 70px;
+    border-radius: 40px;
+    box-shadow: 0 0 20px var(--shadow-color);
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+    text-wrap: pretty;
+    word-wrap: break-word;
+
+}
+
+::-webkit-scrollbar {
+    width: 30px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-corner {
+    border-radius: 30px;
+}
+
+::-webkit-scrollbar-thumb {
+    /* background-color: rgba(83, 28, 37, 0.42); */
+    background: var(--scroll-color);
+    border-radius: 20px;
+    background-clip: content-box;
+    border: 10px solid transparent;
+    width: 10px;
+    
+}
+
+::-webkit-scrollbar:vertical {
+    border-radius: 20px;
+    
+}
+
+#input-list {
+    margin: 0px 20px;
+}
+
+#input-list li {
+
+    list-style: none;
+    letter-spacing: 1.5px;
+    padding: 8px 33px;
+    margin: 20px 0px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+
+}
+
+#input-list li::before {
+    position: absolute;
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-radius: 2%;
+    left: 0;
+    bottom: 7px;
+    border: 2px solid black;
+    background-size: 100%;
+
+}
+
+#input-list li.checked {
+    background-color: grey;
+    color: white;
+    border-radius: 50px;
+    height: auto;
+
+}
+
+#input-list li.checked::before {
+    /* position: absolute; */
+    content: '';
+    width: 30px;
+    height: 30px;
+    border-radius: 2%;
+    left: -7px;
+    bottom: -2px;
+    background: url(checked-mark1.png) no-repeat;
+    background-size: 100%;
+    border: none;
+}
+
+#input-list li span {
+    position: absolute;
+    bottom: 1px;
+    right: 0px;
+    margin-right: 9px;
+    width: 30px;
+    height: 30px;
+
+    border-radius: 10px;
+    background: url(dustbin1.png) no-repeat;
+    background-size: 100%;
+
+}
+
+#input-list li span:hover {
+    /* background-color: black; */
+    filter: invert(1)
+}
+
+footer {
+
+    width: 100%;
+    /* height: 5vh; */
+
+    /* display: inline-block; */
+}
+
+footer input {
+
+    visibility: hidden;
+
+
+}
+
+.checkbox-label {
+    background: rgb(104, 191, 241);
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 5vh;
+    display: inline-block;
+    padding: 0.5% 46%;
+    font-size:15px;
+    transition: 0.3s linear;
+    opacity: 80%;
+}
+.checkbox-label:hover{
+    background-color: black;
+    color: white;
+}
+
+#night-mode:checked + .checkbox-label{
+    background-color: black;
+    text-align: white;
+    opacity: 80%;
+}
+#night-mode:checked + .checkbox-label:hover{
+    background: rgb(104, 191, 241);
+    color: black;
+    opacity: 50%;
+
+
+}
+
+
+@media(max-width:512px){
+    .todo-image{
+        bottom: 60%;
+        right: 40%;
+    }
+
+    .input{
+        margin: 30px 5px;
+    }
+
+    header, .input-heading{
+        max-width: 300px;
+    }
+    #input-bar {
+        padding: 0px 0px;
+        letter-spacing: 0.5px;
+        font-size: 10px;
+    }
+    .input-btn {
+        padding: 0px;
+        margin-right: 0px;
+    }
+    .todo{
+        max-width: 300px;
+        max-height: 200px;
+        font-size: 10px;
+        margin-bottom: 50px;
+    }
+    .checkbox-label{
+        padding: 0.5% 40%;
+    }
+}
+
+@media(max-width:450px){
+        h2{
+            font-size: 10px;
+            padding: 5px;
+            margin-top: 8px;
+        }
+        header, .input-heading{
+            width: 250px;
+            font-size: 8px;
+
+        }
+
+        #input-bar {
+            height: auto;
+            letter-spacing: 0px;
+            padding-left: 8px;
+
+
+        }
+
+        .input{
+            margin: -5px;
+            letter-spacing: 0px;
+
+
+        }
+        .todo{
+            width: 250px;
+            margin: 70px auto 20px;
+            letter-spacing: 0px;
+
+
+        }
+        #input-list li{
+            /* font-size: smaller; */
+            margin: 10px 0px;
+            letter-spacing: 0.5px;
+        }
+
+
+}
+
+
+/* @media */
+/* night mode */
